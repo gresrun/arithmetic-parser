@@ -6,8 +6,8 @@ import org.junit.Test;
 
 public class TestJavassistArithmeticParser extends TestArithmeticParser {
 
-	@Test
-	public void testEvaluate() {
-		doTest(new JavassistArithmeticParser());
-	}
+    @Test
+    public void testEvaluate() {
+        doTest(new JavassistArithmeticParser());
+    }
 }

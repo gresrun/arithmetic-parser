@@ -7,11 +7,12 @@ package net.greghaines.arithmeticparser;
  */
 public interface ArithmeticParser {
 
-	/**
-	 * Evaluate an arithmetic expression.
-	 * 
-	 * @param expression the arithmetic expression
-	 * @return the number that the expression evaluated to
-	 */
-	double evaluate(String expression);
+    /**
+     * Evaluate an arithmetic expression.
+     * 
+     * @param expression
+     *            the arithmetic expression
+     * @return the number that the expression evaluated to
+     */
+    double evaluate(String expression);
 }
