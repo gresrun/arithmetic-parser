@@ -18,10 +18,10 @@ public class RegexArithmeticParser implements ArithmeticParser {
      */
     @Override
     public double evaluate(final String expression) {
-        String text = expression;
+        final StringBuilder text = new StringBuilder(expression);
         final Matcher p = parenPattern.matcher(text);
         while (p.reset(text).find()) {
-            text = text.substring(0, p.start()) + evaluate(p.group(1)) + text.substring(p.end());
+            text.replace(p.start(), p.end(), Double.toString(evaluate(p.group(1))));
         }
         for (final Pattern opPattern : opPatterns) {
             p.usePattern(opPattern);
@@ -46,9 +46,9 @@ public class RegexArithmeticParser implements ArithmeticParser {
                 default:
                     throw new IllegalArgumentException("Unknown operator: " + operator);
                 }
-                text = text.substring(0, p.start()) + result + text.substring(p.end());
+                text.replace(p.start(), p.end(), Double.toString(result));
             }
         }
-        return Double.parseDouble(text);
+        return Double.parseDouble(text.toString());
     }
 }
