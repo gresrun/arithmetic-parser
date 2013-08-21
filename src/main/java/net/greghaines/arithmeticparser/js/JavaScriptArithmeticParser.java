@@ -1,4 +1,4 @@
-package net.greghaines.arithmeticparser.rhino;
+package net.greghaines.arithmeticparser.js;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -7,11 +7,11 @@ import javax.script.ScriptException;
 import net.greghaines.arithmeticparser.ArithmeticParser;
 
 /**
- * An implementation that uses the a JavaScript parser to evaluate the expression.
+ * An implementation that uses Java's built-in JavaScript parser to evaluate the expression.
  * 
  * @author Greg Haines
  */
-public class RhinoArithmeticParser implements ArithmeticParser {
+public class JavaScriptArithmeticParser implements ArithmeticParser {
 
     /**
      * {@inheritDoc}
