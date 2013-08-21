@@ -18,7 +18,7 @@ public class RhinoArithmeticParser implements ArithmeticParser {
      */
     @Override
     public double evaluate(final String expression) {
-        double result;
+        final double result;
         try {
             final ScriptEngineManager factory = new ScriptEngineManager();
             final ScriptEngine engine = factory.getEngineByName("JavaScript");
