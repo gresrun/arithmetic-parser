@@ -61,7 +61,8 @@ public class JavassistArithmeticParser implements ArithmeticParser {
             c.detach();
             final Class<?> genClazz = (Class<?>) this.defineClassMethod.invoke(classLoader, className, byteCode, 0, byteCode.length);
             final ArithmeticParser genObj = (ArithmeticParser) genClazz.newInstance();
-            // Can send null because argument is ignored in generated implementations
+            // Can send null because argument is ignored in generated
+            // implementations
             result = genObj.evaluate(null);
         } catch (ArithmeticException ae) {
             // So... Javassist can blow up with a ArithmeticException when
@@ -76,6 +77,13 @@ public class JavassistArithmeticParser implements ArithmeticParser {
         return result;
     }
 
+    /**
+     * Cast all integers to doubles so there is never any integer arithmetic.
+     * 
+     * @param expression
+     *            the original expression
+     * @return the expression with all integers casted to doubles
+     */
     private static String castedExpression(final String expression) {
         final StringBuilder exprSB = new StringBuilder(expression);
         final Matcher matcher = numberPattern.matcher(exprSB);
