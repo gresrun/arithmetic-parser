@@ -5,6 +5,11 @@ import java.util.regex.Pattern;
 
 import net.greghaines.arithmeticparser.ArithmeticParser;
 
+/**
+ * An implementation that recursively applies regular expressions to evaluate the expression.
+ * 
+ * @author Chris Haines
+ */
 public class RegexArithmeticParser implements ArithmeticParser {
     
     private static final Pattern parenPattern = Pattern.compile("\\(([^\\)\\(]+)\\)");
