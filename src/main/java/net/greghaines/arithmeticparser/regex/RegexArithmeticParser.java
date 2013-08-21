@@ -1,4 +1,4 @@
-package net.greghaines.arithmeticparser.regexor;
+package net.greghaines.arithmeticparser.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +25,7 @@ public class RegexArithmeticParser implements ArithmeticParser {
         }
         for (final Pattern opPattern : opPatterns) {
             p.usePattern(opPattern);
+            // FIXME: Handle Infinity, -Infinity and NaN
             while (p.reset(text).find()) {
 //                System.out.println("PRE text: " + text);
                 final String arg1 = p.group(1);
