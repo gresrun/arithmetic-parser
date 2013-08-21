@@ -96,5 +96,8 @@ public abstract class TestArithmeticParser {
         assertEquals(1.0, parser.evaluate("2 * 1.5 - 2"), DELTA);
         assertEquals(Double.NEGATIVE_INFINITY, parser.evaluate("123.5 - 123.5 / 0"), DELTA);
         assertEquals(20.5, parser.evaluate("3 * 6 + 2.5"), DELTA);
+        // Advanced Stuff
+        assertEquals(17.0, parser.evaluate("12 + (32 - (8/2) * (3)) / 4"), DELTA);
+        assertEquals(14.875, parser.evaluate("(12- 2+1/ (4  *2)) + (32 - (8/2) * (3)) / 4"), DELTA);
     }
 }
