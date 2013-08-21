@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.greghaines</groupId>
+    <artifactId>arithmetic-parser</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Arithmetic Parser</name>
+    <description>Try to implement the zaniest arithmetic parsers possible!</description>
+    <inceptionYear>2013</inceptionYear>
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/gresrun/arithmetic-parser/issues</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:git:git@github.com:gresrun/arithmetic-parser.git</connection>
+        <developerConnection>scm:git:git@github.com:gresrun/arithmetic-parser.git</developerConnection>
+        <url>git@github.com:gresrun/arithmetic-parser.git</url>
+        <tag>HEAD</tag>
+    </scm>
+    <developers>
+        <developer>
+            <id>gresrun</id>
+            <name>Greg Haines</name>
+            <email>gresrun@gmail.com</email>
+            <url>http://greghaines.net/</url>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.18.0-GA</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
