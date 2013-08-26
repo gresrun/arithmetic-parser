@@ -7,6 +7,12 @@ import java.io.OutputStream;
 
 import net.greghaines.arithmeticparser.ArithmeticParser;
 
+/**
+ * An implementation that passes on the work of calculation to the
+ * UNIX utility 'bc'.
+ * 
+ * @author Greg Haines
+ */
 public class BCArithmeticParser implements ArithmeticParser {
 
     /**
@@ -23,7 +29,6 @@ public class BCArithmeticParser implements ArithmeticParser {
             final OutputStream os = bcProc.getOutputStream();
             os.write(("scale=10; " + expression + "\n").getBytes());
             os.flush();
-//            bcProc.waitFor();
             final BufferedReader br = new BufferedReader(new InputStreamReader(bcProc.getInputStream()));
             final String resultStr = br.readLine();
             if (resultStr.contains("Divide by zero")) {
