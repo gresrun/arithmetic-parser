@@ -1,7 +1,6 @@
 package net.greghaines.arithmeticparser.js;
 
 import net.greghaines.arithmeticparser.TestArithmeticParser;
-import net.greghaines.arithmeticparser.js.JavaScriptArithmeticParser;
 
 import org.junit.Test;
 

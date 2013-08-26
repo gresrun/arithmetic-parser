@@ -1,6 +1,9 @@
 package net.greghaines.arithmeticparser;
 
+import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 /**
  * Extend this class for each implementation. Each subclass only needs to make a
@@ -70,7 +73,7 @@ public abstract class TestArithmeticParser {
         assertEquals(15252.25, parser.evaluate("123.5 * 123.5"), DELTA);
         assertEquals(1883652.875, parser.evaluate("123.5 * 123.5 * 123.5"), DELTA);
         // Basic Division
-        assertEquals(Double.NaN, parser.evaluate("0 / 0"), DELTA);
+        assertThat(parser.evaluate("0 / 0"), anyOf(is(Double.NaN), is(Double.NEGATIVE_INFINITY)));
         assertEquals(1.0, parser.evaluate("1 / 1"), DELTA);
         assertEquals(1.5, parser.evaluate("3 / 2"), DELTA);
         assertEquals(0.00813008130081, parser.evaluate("123 / 123 / 123"), DELTA);
@@ -85,7 +88,7 @@ public abstract class TestArithmeticParser {
         assertEquals(123.0, parser.evaluate("123 * 123 / 123"), DELTA);
         assertEquals(-1.6, parser.evaluate("1.5 / 1 - 0.5 * 6.2"), DELTA);
         assertEquals(1.0, parser.evaluate("2 * 1.5 - 2"), DELTA);
-        assertEquals(Double.NEGATIVE_INFINITY, parser.evaluate("123.5 - 123.5 / 0"), DELTA);
+        assertThat(parser.evaluate("(123.5 - 123.5 / 0)"), anyOf(is(Double.NaN), is(Double.NEGATIVE_INFINITY)));
         assertEquals(20.5, parser.evaluate("3 * 6 + 2.5"), DELTA);
         // Parenthetical Arithmetic
         assertEquals(2.0, parser.evaluate("1 + (2 - 1)"), DELTA);
@@ -94,7 +97,7 @@ public abstract class TestArithmeticParser {
         assertEquals(123.0, parser.evaluate("123 * 123 / 123"), DELTA);
         assertEquals(-1.6, parser.evaluate("1.5 / 1 - 0.5 * 6.2"), DELTA);
         assertEquals(1.0, parser.evaluate("2 * 1.5 - 2"), DELTA);
-        assertEquals(Double.NEGATIVE_INFINITY, parser.evaluate("123.5 - 123.5 / 0"), DELTA);
+        assertThat(parser.evaluate("(123.5 - 123.5) / 0"), anyOf(is(Double.NaN), is(Double.NEGATIVE_INFINITY)));
         assertEquals(20.5, parser.evaluate("3 * 6 + 2.5"), DELTA);
         // Advanced Stuff
         assertEquals(17.0, parser.evaluate("12 + (32 - (8 / 2) * (3)) / 4"), DELTA);
